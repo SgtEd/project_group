@@ -1,16 +1,58 @@
 from pathlib import Path
 import re, csv
-file_path=Path.cwd()/"project_group"
-file_path_Cash_on_hand_csv=Path.cwd()/"csv_reports"/"Cash on hand.csv"
-file_path_Cash_on_hand_csv.touch()
-empty_list=[]
-with file_path_Cash_on_hand_csv.open(mode="r",encoding="UTF-8",newline="") as file:
-  reader = csv.reader(file)
-  next(reader)
-  for line in reader:
-    empty_list.append({"Day": line[0],"Cash On Hand": line[1]})
-    
-print(empty_list) 
-         
+import glob
 
+from decimal import Decimal
+
+def readCSV(exchange_data):
+
+    arr = []
+
+    prevDay = 0
+    prevAmount = 0
+
+    currDay = 0
+    currAmount = 0
+
+    print("Finding cash deficit..")
+
+    with open("csv_reports/Cash on hand.csv") as csv_file:
+        csv_reader =  csv.reader(csv_file, delimiter=",")
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 1:
+
+                currDay = row[0]
+
+                # convert current amount to SGD
+                # USD/exchange_data = SGD
+                currAmount = Decimal(row[1]) / exchange_data
+                currAmount = round(currAmount, 2)
+
+
+
+            if line_count > 1:
+
+                prevDay = currDay
+                prevAmount = currAmount
+
+                currDay = row[0]
+
+                # USD/exchange_date = SGD
+                currAmount = Decimal(row[1]) / exchange_data 
+                currAmount = round(currAmount, 2)
+
+                if currAmount < prevAmount:
+                    amountDiff = prevAmount - currAmount
+
+                    # print ("Hi")
+                    entry = [currDay, float(amountDiff)]
+                    arr.append(entry)
+
+            line_count += 1
+            # print(line_count)
+        
+        # print(arr)
+
+    return arr
 
