@@ -23,3 +23,5 @@ def getData():
 
     return roundedOffExchangeRate
 
+
+
