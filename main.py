@@ -1,8 +1,8 @@
 import api, cash_on_hand, profit_loss, overheads
 
 def main():
-    exchange-data = api.getData()
-    print("Exchnage rate: ", exchange_data)
+    exchange_data = api.getData()
+    print("Exchange rate: ", exchange_data)
 
     cash_on_hand_data = cash_on_hand.readCSV(exchange_data)
 
