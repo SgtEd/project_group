@@ -6,6 +6,11 @@ from decimal import Decimal
 
 def readCSV(exchange_data):
 
+"""
+
+"""
+
+
     arr = []
 
     prevDay = 0
