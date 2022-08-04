@@ -6,9 +6,11 @@ from decimal import Decimal
 
 def readCSV(exchange_data):
 
-"""
+    """
 
-"""
+This function is to find the cash deficit using the csv file "Cash on Hand". 
+
+    """
 
 
     arr = []
