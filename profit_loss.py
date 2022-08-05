@@ -7,7 +7,7 @@ from decimal import Decimal
 
 def readCSV(exchange_data):
     """
-    this function is to find the profit deflict using profit-and-loss-usd.csv file
+    This function is to find the profit deflict using profit-and-loss-usd.csv file
 
     """
 
