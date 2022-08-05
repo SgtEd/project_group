@@ -8,7 +8,7 @@ def readCSV(exchange_data):
 
     """
 
-This function is to find the cash deficit using the csv file "Cash on Hand". 
+    This function is to find the cash deficit using the csv file "Cash on Hand". 
 
     """
 
