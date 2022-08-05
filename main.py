@@ -1,6 +1,10 @@
 import api, cash_on_hand, profit_loss, overheads
 
 def main():
+    """
+    This function is to write a summary using value found in api,cash_on_hand,profit_loss,overheads
+    
+    """
     exchange_data = api.getData()
     print("Exchange rate: ", exchange_data)
 

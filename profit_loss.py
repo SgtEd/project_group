@@ -6,6 +6,10 @@ import glob
 from decimal import Decimal
 
 def readCSV(exchange_data):
+    """
+    this function is to find the profit deflict using profit-and-loss-usd.csv file
+
+    """
 
     arr = []
 
